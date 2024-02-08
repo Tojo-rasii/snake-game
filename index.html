@@ -1,16 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Snake Game</title>
 </head>
+
 <body>
-    <div id="game-board"></div>
-    <button id="play-button">Play</button>
-    <div id="score">Score: 0</div>
-    <div id="high-score">High Score: 0</div>
+    <nav>
+        <section>
+
+
+            <article>
+                <span>Snake Game</span>
+            </article>
+
+            <!-- SCORE -->
+            <header>
+                <div id="score">
+                    <span>
+                        <!-- <ion-icon name="logo-apple"></ion-icon> -->
+                        Score:
+                    </span>
+                    <span>0</span>
+                </div>
+                <div id="high-score">
+                    <span>
+                        <!-- <ion-icon name="trophy"></ion-icon> -->
+                        High-score:
+
+                    </span>
+                    <span>0</span>
+                </div>
+            </header>
+
+            <article>
+                <span>
+                    <ion-icon name="moon"></ion-icon>
+                </span>
+                <!-- <span>
+                    <ion-icon name="sunny"></ion-icon>
+                </span> -->
+                <span>
+                    <ion-icon name="cog"></ion-icon>
+                </span>
+                <span>
+                    <ion-icon name="log-out"></ion-icon>
+                </span>
+            </article>
+        </section>
+    </nav>
+    <div style="margin: 0 auto;">
+        <main style="display: flex;flex-direction: column;">
+            <div id="game-board"></div>
+            <div
+                style="display: flex;flex-direction: row; gap: 1.4em; margin-top: 1.3em;margin-left: 1.6em; justify-content:flex-start;">
+                <article>
+                    <button id="play-button"><span class="i-play"><ion-icon name="power" style="margin-top: 0.2em;"
+                                id="power"></ion-icon></span></button>
+                </article>
+                <article>
+                    <button id="pause-button"><span class="i-pause"><ion-icon name="pause"
+                                style="margin-top: 0.2em;"></ion-icon></span></button>
+                </article>
+            </div>
+            <!-- game over -->
+            <div class="GameOver" id="GameOver">
+            </div>
+
+        </main>
+
+        <figure id="snakeFig">
+            <picture class="picture">
+                <img src="../snake-game/tools/137e1432be448726d60849bb6f5027b2-snake-twisting-tail-stroke.png"
+                    id="snakePic">
+            </picture>
+        </figure>
+    </div>
+    <footer>
+        <section id="contact">
+            <article>
+                <span><ion-icon name="logo-google" id="logo-chrome"></ion-icon></span>
+                <span>
+                    <sup>TR. Portfolio</sup>
+                    <sub>tojo-rasii.github.io</sub>
+                </span>
+            </article>
+            <article>
+                <span><ion-icon name="logo-github" id="logo-github"></ion-icon></span>
+                <span>
+                    <sup>github</sup>
+                    <sub>Tojo-rasii</sub>
+                </span>
+            </article>
+
+            <article>
+                <span><ion-icon name="at" id="logo-chrome"></ion-icon></span>
+                <span>
+                    <sup>Email</sup>
+                    <sub>tojorasii1619@gmail.com</sub>
+                </span>
+            </article>
+            <article>
+                <span><ion-icon name="logo-facebook" id="logo-chrome"></ion-icon></span>
+                <span>
+                    <sup>Facebook</sup>
+                    <sub>Tojo RASAMIMANANA</sub>
+                </span>
+            </article>
+        </section>
+        <section>
+            <article id="iconPlus">
+                <span><ion-icon name="add-circle" id="logo-chrome"></ion-icon></span>
+            </article>
+            <article id="iconClose">
+                <span><ion-icon name="close-circle" id="logo-chrome"></ion-icon></ion-icon></span>
+            </article>
+        </section>
+    </footer>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="script.js"></script>
+
 </body>
+
 </html>

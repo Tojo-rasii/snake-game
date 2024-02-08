@@ -1,14 +1,549 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --bg-1: #f2f2f2;
+    --bg-2: #7ebd00;
+    --bg-3: #f2f2f2;
+    --bg-4: #6f6f6f;
+    --bg-5: #0b0b22;
+    --bg-6: #09093a;
+}
+
+body {
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    background: var(--bg-5);
+}
+
+nav {
+    width: 100vw;
+    background: none;
+    padding: 0.8em;
+    margin: 0 auto;
+    background: transparent;
+    padding-inline: 3em;
+}
+
+nav section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav section article:nth-child(1) span {
+    font-size: 2em;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 0 15px rgb(255, 21, 0);
+}
+
+nav section article:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5em;
+}
+
+nav section article:nth-child(3) span {
+    cursor: pointer;
+    font-size: 1.9em;
+}
+
+nav section article:nth-child(3) span ion-icon {
+    background: #09093a;
+    box-shadow: 0 0 10px #c100ae;
+    outline: 2px solid #fff;
+    padding: 0.3em;
+    color: #fff;
+    border-radius: 50%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5em;
+    scale: 1;
+}
+
+#score,
+#high-score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #09093a;
+    /* border: 2px solid #5c8a00; */
+    outline: 2px solid #fff;
+    box-shadow: 0 0 8px #c100ae;
+    padding-inline: 1.5em;
+
+    color: #ffff;
+    font-size: 1.5em;
+    font-family: monospace;
+    gap: 0.5em;
+    padding: 0.5em;
+    width: 15vw;
+    border-radius: 3em;
+    overflow: hidden;
+}
+
+/* 
+#score ion-icon,
+#high-score ion-icon {
+    background: #06061e;
+    outline: 1.5px solid #8acf00;
+    padding: 0.2em;
+    border-radius: 50%;
+    margin-left: 0;
+    font-size: 1.3em;
+    color: #0000dc;
+
+} */
+
 #game-board {
     position: relative;
-    width: 300px;
-    height: 300px;
-    border: 1px solid #000;
+    width: 500px;
+    height: 420px;
+    background: transparent;
+    background-position: center;
+    outline: 4px solid #fff;
+    border: 1px solid #09092f;
+    box-shadow: 0 0 15px #0000c1 inset;
+    margin: 1em;
+    margin-left: 1em !important;
+    border-radius: 5px;
+    padding: 1em !important;
 }
+
+#game-board::after {
+    content: "";
+    position: absolute;
+    background: none;
+    top: 100%;
+    left: 6.7%;
+    width: 29.7vw;
+    height: 4.5vh;
+    border-bottom: 2px solid #b5b5b5;
+    border-left: 2px solid #b5b5b5;
+    border-right: 2px solid #b5b5b5;
+    padding: 1em;
+    z-index: -999;
+    border-radius: 0.5em;
+    opacity: 0;
+}
+
 .snake {
     position: absolute;
-    background-color: green;
+    background-color: #0b0b22;
+    outline: 3px solid rgb(0, 146, 203);
+    box-shadow: 0 0 15px rgb(0, 146, 203);
+    border-radius: 0.5px;
 }
+
 .food {
     position: absolute;
-    background-color: red;
+    background-color: #0b0b22;
+    outline: 3px solid #cbcb00;
+    box-shadow: 0 0 15px #cbcb00;
+    border-radius: 50%;
+}
+
+#snakeFig {
+    position: absolute;
+    top: 15.9%;
+    left: 34.5%;
+}
+
+#snakePic {
+    width: 30.5em;
+    height: auto;
+    border-radius: 1%;
+    padding: 3em;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0.3;
+    background: transparent;
+    filter: invert(100%);
+    z-index: -0.1;
+
+}
+
+
+
+
+
+#play-button,
+#pause-button {
+    padding: 0.1em !important;
+    cursor: pointer;
+    font-size: 1.8em;
+    padding-inline: 0.4em !important;
+    border-radius: 10%;
+    background: #fff;
+    border: none;
+    outline: 1px solid silver;
+    box-shadow: 0 0 2px rgb(160, 160, 160);
+    margin-top: 0.5em;
+}
+
+#play-button {
+    outline: 2px solid #fff;
+    background: none;
+    color: #fff;
+    box-shadow: 0 0 6px #ff1500 inset;
+    /* text-shadow: 0 0 15px #ff1500; */
+}
+
+#pause-button {
+    outline: 3px solid rgb(0, 255, 255);
+    background: none;
+    color: #fff;
+    box-shadow: 0 0 6px aqua inset;
+}
+
+
+
+
+#pause-button {
+    display: none;
+}
+
+#play-button:disabled {
+    opacity: 0.5;
+    cursor: default;
+    background: none;
+    /* outline: 3px solid rgb(30, 255, 0);
+    background: none;
+    color: rgb(30, 255, 0);
+    box-shadow: 0 0 15px rgb(30, 255, 0); */
+}
+
+/* 
+.i-play {
+    text-align: center;
+
+}
+
+.i-pause {
+
+    text-align: center;
+
+} */
+
+.GameOver {
+    position: absolute;
+    top: 20%;
+    left: 35.8%;
+    background-color: var(--bg-6) !important;
+    padding-inline: 2.5em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    /* outline: 1px solid #003000; */
+    color: #fff;
+    border: 3px solid #fff;
+    /* border-top: 3px solid rgb(0, 183, 255);
+    border-right: 3px solid rgb(0, 183, 255);
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff; */
+    box-shadow: 0 0 5px rgb(255, 0, 179);
+    border-radius: 5px;
+    animation: scale 0.1s normal forwards;
+    display: none;
+    z-index: 999;
+}
+
+@keyframes scale {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+
+    }
+}
+
+/* .GameOver::before{
+    content: "";
+    position: absolute;
+    width: 150vw;
+    height: 150vh;
+    background: black;
+    opacity: 0.2;
+    top:-150%;
+    left:-250%;
+    z-index: -20;
+} */
+.GameOver section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.GameOver article:nth-child(1) {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: 500;
+    /* color: currentColor; */
+    color: #fff;
+    text-shadow: 0 0 15px rgb(255, 21, 0);
+}
+
+.GameOver article:nth-child(2) {
+    font-size: 1.1em;
+    color: currentColor;
+}
+
+.GameOver article:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.GameOver article:nth-child(3) button {
+    padding: 0.5em;
+    outline: 2px solid #fff;
+    background: none;
+    box-shadow: 0 0 2px rgb(160, 160, 160);
+    color: #fff;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    gap: 0.5em;
+    width: max-content;
+    border: none;
+    padding-inline-start: 1.5em;
+    padding-inline-end: 2em;
+    margin: 0.8em;
+    margin-left: 0;
+    border-radius: 3em;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.GameOver article:nth-child(3) button:nth-child(2) {
+    background: none;
+}
+
+.i-over {
+    font-size: 1.5em;
+}
+
+
+
+/* Footer */
+footer {
+    position: absolute;
+    margin-top: 20.2em;
+    left: -20% !important;
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24em;
+    gap: 2em;
+}
+
+footer section article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em !important;
+    background: #09092f;
+    color: #fff;
+    outline: 2px solid #fff;
+    padding: 0.7em;
+    padding-inline-end: 2em;
+    border-radius: 4em;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.contact-plus article {
+    width: 17vw !important;
+    overflow: hidden;
+}
+
+.contact-plus article span sub {
+    width: 10vw !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.contact-plus article:nth-child(1) {
+    width: max-content;
+    animation: anim 0.5s normal forwards !important;
+}
+
+.contact-plus article:nth-child(1):hover {
+    outline: 2px solid #ffff00;
+    box-shadow: 0 0 5px #ffff00;
+    scale: 1.1;
+}
+
+.contact-plus article:nth-child(2) {
+    width: max-content;
+    animation: anim 1s normal forwards !important;
+}
+
+.contact-plus article:nth-child(2):hover {
+    outline: 2px solid aqua;
+    box-shadow: 0 0 5px aqua;
+    scale: 1.1;
+}
+
+
+.contact-plus article:nth-child(3) {
+    width: max-content;
+    animation: anim 1.5s normal forwards !important;
+}
+
+.contact-plus article:nth-child(3):hover {
+    outline: 2px solid #c100ae;
+    box-shadow: 0 0 5px #c100ae;
+    scale: 1.1;
+}
+
+
+.contact-plus article:nth-child(4) {
+    width: max-content;
+    animation: anim 2s normal forwards !important;
+}
+
+.contact-plus article:nth-child(4):hover {
+    outline: 2px solid rgb(0, 98, 255);
+    box-shadow: 0 0 5px rgb(0, 98, 255);
+    scale: 1.1;
+}
+
+
+.contact-plus article:nth-child(5) {
+    width: max-content;
+    animation: anim 2.5s normal forwards !important;
+}
+
+.contact-plus article:nth-child(5):hover {
+    outline: 2px solid aqua;
+    box-shadow: 0 0 5px aqua;
+    scale: 1.1;
+}
+
+
+@keyframes anim {
+    0% {
+        margin-left: -15em;
+
+    }
+
+    100% {
+        margin-left: 0;
+
+    }
+}
+
+
+/* ANIM CLOSE */
+/* .contact-close article:nth-child(1) {
+    width: max-content;
+    animation: anim 5s normal reverse !important;
+}
+
+.contact-close article:nth-child(2) {
+    width: max-content;
+    animation: anim 4s normal forwards !important;
+}
+
+.contact-close article:nth-child(3) {
+    width: max-content;
+    animation: anim 3s normal forwards !important;
+}
+
+.contact-close article:nth-child(4) {
+    width: max-content;
+    animation: anim 2s normal forwards !important;
+}
+
+.contact-close article:nth-child(5) {
+    width: max-content;
+    animation: anim1 1s normal forwards !important;
+}
+
+@keyframes anim1 {
+    0% {
+        margin-left: -15em;
+
+    }
+
+    100% {
+        margin-left: 0;
+
+    }
+} */
+
+footer section article span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+
+footer section article span:nth-child(2) {
+    padding: 0 !important;
+}
+
+footer section article span sup {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+#logo-github {
+    font-size: 2.7em;
+    color: #fff;
+}
+
+#logo-chrome {
+    font-size: 2.7em;
+}
+
+footer section:nth-child(2) {
+    margin-top: 2em;
+}
+
+footer section:nth-child(2) article {
+    width: max-content;
+    padding: 0.5em;
+    font-size: 1.2em;
+}
+
+#contact {
+    visibility: hidden;
+}
+
+#iconPlus {
+    cursor: pointer;
+    color: aqua;
+    outline: 2px solid #fff;
+    background: #09092f;
+    box-shadow: 0 0 8px aqua;
+    display: block;
+}
+
+#iconClose {
+    cursor: pointer;
+    color: aqua;
+    outline: 2px solid #fff;
+    background: #09092f;
+    box-shadow: 0 0 8px aqua;
+    display: none;
 }
